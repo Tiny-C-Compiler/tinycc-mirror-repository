@@ -258,7 +258,7 @@ static char *default_outputfile(TCCState *s, const char *first_file)
         name = tcc_basename(first_file);
     if (strlen(name) + 4 >= sizeof buf)
         name = "a";
-    strcpy(buf, name);
+    snprintf(buf, sizeof(buf), "%s", name);
     ext = tcc_fileextension(buf);
 #ifdef TCC_TARGET_PE
     if (s->output_type == TCC_OUTPUT_DLL)
